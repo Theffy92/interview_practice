@@ -32,3 +32,5 @@ def palindrome(number):
 
 print(palindrome(12321))
 print(palindrome(564))
+
+#I've finished in less than 20 min (pseudocode included)
