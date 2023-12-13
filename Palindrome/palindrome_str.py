@@ -44,35 +44,66 @@
 #     return rev_string == string_lower
 
 # O(1) Space complexity
-def palindrome(word):
-    if type(word) != str:
-        raise TypeError
+# def palindrome(word):
+#     if type(word) != str:
+#         raise TypeError
     
-    #lower cased the entire string
-    word_lower = word.lower()
+#     #lower cased the entire string
+#     word_lower = word.lower()
     
-    #initialize pointers for the start and end of the string
-    start, end = 0, len(word_lower)-1
+#     #initialize pointers for the start and end of the string
+#     start, end = 0, len(word_lower)-1
     
-    while start < end:
-        #remove every whitespace before start
-        while start < end and word_lower[start] == " ":
-            start += 1
+#     while start < end:
+#         #remove every whitespace before start
+#         while start < end and word_lower[start] == " ":
+#             start += 1
         
-        #remove every whitespace before end
-        while start < end and word_lower[end] == " ":
-            end -= 1
-        print("the start is: " + word_lower[start])
-        print("the end is: " + word_lower[end])
+#         #remove every whitespace before end
+#         while start < end and word_lower[end] == " ":
+#             end -= 1
+#         print("the start is: " + word_lower[start])
+#         print("the end is: " + word_lower[end])
         
-        if word_lower[start] != word_lower[end]:
-            return False
+#         if word_lower[start] != word_lower[end]:
+#             return False
         
-        start += 1
-        end -= 1
+#         start += 1
+#         end -= 1
     
-    return True
+#     return True
 
-print(palindrome("Race cAr"))
-print(palindrome("pronunciation"))
-print(palindrome("mOm"))
+#recursive
+
+def is_palindrome_recursive(word):
+    #base case: an empty string or a strign with a character is a palindrome
+    #convert to lower case
+    word_lower = word.lower()
+    if len(word_lower) <= 1:
+        return True
+    
+    
+    word_no_blanks = " "
+    for char in word_lower:
+        if char != " ":
+            word_no_blanks += char
+            
+    word_lower = "".join(word_no_blanks)
+    
+    print(word_lower)
+    
+    start = word_lower[1]
+    print(start)
+    
+    end = word_lower[-1]
+    print(end)
+    #compare the first and last element
+    if start == end :
+        #start recursion comparing the substring excluding the first and last character
+        return is_palindrome_recursive(word_lower[2:-1])
+    else:
+        return False
+    
+print(is_palindrome_recursive("Race cAr")) #true
+print(is_palindrome_recursive("pronunciation")) #false
+print(is_palindrome_recursive("mOm")) #true
