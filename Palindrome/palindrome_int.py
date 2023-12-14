@@ -31,27 +31,46 @@
 #     return int(reverse) == number
 import math 
 
-def palindrome(number):
-    if type(number) != int:
-        raise TypeError
+# def palindrome(number):
+#     if type(number) != int:
+#         raise TypeError
     
-    #A logarithm (of the base b) is the power to which the base needs to be raised to 
-    # yield a given number.
-    #it's gonna be rounded down
-    counter_len =int(math.log10(number)) + 1
-    number_copy = number
+#     #A logarithm (of the base b) is the power to which the base needs to be raised to 
+#     # yield a given number.
+#     #it's gonna be rounded down
+#     counter_len =int(math.log10(number)) + 1
+#     number_copy = number
+#     reverse = ""
+#     rev_mod = 0
+#     while counter_len >= 1:
+#         rev_mod = number_copy % 10
+#         reverse += str(rev_mod)
+#         number_copy = int(number_copy/10)
+#         counter_len -= 1
+        
+#     return int(reverse) == number
+    
+
+#recursive
+def is_palindrome_recursive(number):
+    #base case: number has one digit or zero
+    if number <= 1:
+        return True
     reverse = ""
-    rev_mod = 0
-    while counter_len >= 1:
+    counter_len = int(math.log10(number)) + 1
+    rev_mod = ""
+    number_copy =  number
+    if counter_len > 1:
         rev_mod = number_copy % 10
         reverse += str(rev_mod)
-        number_copy = int(number_copy/10)
-        counter_len -= 1
-        
-    return int(reverse) == number
+        number_copy = int(number_copy / 10)
+        return is_palindrome_recursive(number_copy)
+    else:
+        return False
     
-print(palindrome(12321))
-print(palindrome(121))
-print(palindrome(564))
+# print(palindrome(12321))
+# print(palindrome(121))
+# print(palindrome(564))
+
 
 #I've finished in less than 20 min (pseudocode included)
