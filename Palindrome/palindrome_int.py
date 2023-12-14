@@ -59,9 +59,9 @@ def is_palindrome_recursive(number):
         return True
     
     rev_mod = number % 10
-    number_copy = int(number / 10)
+    number = int(number / 10)
     
-    return rev_mod == number_copy % 10 and is_palindrome_recursive(number_copy)
+    return rev_mod == number % 10 and is_palindrome_recursive(number)
   
     
 # print(palindrome(12321))
