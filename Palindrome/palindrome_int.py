@@ -11,26 +11,47 @@
 #5- compare reverse with number and if they match then it's True
 #otherwise is False
 
-import math
+# import math
+
+# def palindrome(number):
+#     if type(number) != int:
+#         raise TypeError
+    
+#     num_alt = number
+#     num_mod= 0
+#     reverse= ''
+#     len_num= int(math.log10(number)) + 1
+
+#     while len_num >= 1:
+#         num_mod= num_alt % 10
+#         reverse += str(num_mod)
+#         num_alt = int(num_alt / 10)
+#         len_num -= 1
+
+#     return int(reverse) == number
+import math 
 
 def palindrome(number):
     if type(number) != int:
         raise TypeError
     
-    num_alt = number
-    num_mod= 0
-    reverse= ''
-    len_num= int(math.log10(number)) + 1
-
-    while len_num >= 1:
-        num_mod= num_alt % 10
-        reverse += str(num_mod)
-        num_alt = int(num_alt / 10)
-        len_num -= 1
-
+    #A logarithm (of the base b) is the power to which the base needs to be raised to 
+    # yield a given number.
+    #it's gonna be rounded down
+    counter_len =int(math.log10(number)) + 1
+    number_copy = number
+    reverse = ""
+    rev_mod = 0
+    while counter_len >= 1:
+        rev_mod = number_copy % 10
+        reverse += str(rev_mod)
+        number_copy = int(number_copy/10)
+        counter_len -= 1
+        
     return int(reverse) == number
-
+    
 print(palindrome(12321))
+print(palindrome(121))
 print(palindrome(564))
 
 #I've finished in less than 20 min (pseudocode included)
