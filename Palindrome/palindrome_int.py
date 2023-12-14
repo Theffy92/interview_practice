@@ -54,23 +54,19 @@ import math
 #recursive
 def is_palindrome_recursive(number):
     #base case: number has one digit or zero
-    if number <= 1:
-        return True
-    reverse = ""
     counter_len = int(math.log10(number)) + 1
-    rev_mod = ""
-    number_copy =  number
-    if counter_len > 1:
-        rev_mod = number_copy % 10
-        reverse += str(rev_mod)
-        number_copy = int(number_copy / 10)
-        return is_palindrome_recursive(number_copy)
-    else:
-        return False
+    if counter_len <= 1:
+        return True
+    
+    rev_mod = number % 10
+    number_copy = int(number / 10)
+    
+    return rev_mod == number_copy % 10 and is_palindrome_recursive(number_copy)
+  
     
 # print(palindrome(12321))
 # print(palindrome(121))
 # print(palindrome(564))
-
+print(is_palindrome_recursive(1232))
 
 #I've finished in less than 20 min (pseudocode included)
