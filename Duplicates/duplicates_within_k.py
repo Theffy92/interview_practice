@@ -16,11 +16,24 @@
 #2. should the program contemplate gettin a negative number or 0 as K value?
 #3. Check if list contains integers only as well as k accepts integer only?
 
-def duplicates_within_k(number, k):
-    is_integer_lst = all(isinstance(x, int) for x in number)
-    
+def duplicates_within_k(numbers, k):
+    is_integer_lst = all(isinstance(x, int) for x in numbers)
+    # print(is_integer_lst)
     if is_integer_lst == False or type(k) != int:
         raise TypeError
     
-    if len(number) > 1 and k >= 2:
-        
+    if len(numbers) > 1 and k >= 1:
+        for i in range(len(numbers)):
+            j= i + 1
+            distance_left= k
+            while distance_left > 0 and j < len(numbers):
+                if numbers[i] == numbers[j]:
+                    return True
+                j+=1
+                distance_left -=1
+ 
+            
+    return False
+
+print(duplicates_within_k([1, 0, 2, 1, 3, 4], 5))
+# print(duplicates_within_k([1,2], 1))
