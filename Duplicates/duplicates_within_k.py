@@ -64,16 +64,26 @@ def duplicates_within_k(numbers, k):
     if is_integer_numbers == False or type(k)!= int:
         raise TypeError('no integer')
     
-    if len(numbers) >= 2 and k>=1:
-        new_dict = {}
+    if len(numbers) >= 2 and k>=2:
+        numbers_dict = {}
         for i in range(len(numbers)):
-            if numbers[i] not in new_dict:
-                new_dict[numbers[i]] =[i]
+            if numbers[i] not in numbers_dict:
+                numbers_dict[numbers[i]] =[i]
             else:
-                new_dict[numbers[i]].append(i)
-                
-        print(new_dict)
+                numbers_dict[numbers[i]].append(i)
+        
+        for occur in numbers_dict.values():
+            if len(occur) >= 2:
+                for i in range(len(occur)):
+                    j = i + 1
+                    sutract = occur[j] - occur[i]
+                    if sutract>=1 and sutract < k:
+                        return True
+        
+    return False
+        
     
-print(duplicates_within_k([1, 0, 2, 1, 3, 4], 5))
+# print(duplicates_within_k([1, 0, 2, 1, 3, 4], 5))
+print(duplicates_within_k([1, 0, 2, 1, 3, 4], 1))
 # print(duplicates_within_k([1,2], 1))
 
