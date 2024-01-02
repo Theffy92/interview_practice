@@ -17,4 +17,10 @@
 #3. Check if list contains integers only as well as k accepts integer only?
 
 def duplicates_within_k(number, k):
+    is_integer_lst = all(isinstance(x, int) for x in number)
     
+    if is_integer_lst == False or type(k) != int:
+        raise TypeError
+    
+    if len(number) > 1 and k >= 2:
+        
