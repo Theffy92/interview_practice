@@ -48,4 +48,26 @@
 #4.2 check that the subtraction result is in the dictionary as a key already so we can return 
 #the value of that key, plus the index of the current number.
 #4.3 otherwise we'll add that number at the dictionary, and repeat the process in the loop
-  
+
+#code
+def twoSum(nums, target):
+    is_nums_int = all(isinstance(num, int) for num in nums)
+
+    if not is_nums_int or not isinstance(target, int):
+        raise TypeError('Invalid input types')
+    
+    if len(nums) <= 1:
+        return None
+    
+    nums_dict= {}
+
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in nums_dict:
+            return [nums_dict[complement], i]
+        nums_dict[num] = i
+
+print(twoSum([2,11,7,15], 9))
+print(twoSum([], 2))
+print(twoSum('k', 2))
+print(twoSum([2,11,7,15], '9'))
