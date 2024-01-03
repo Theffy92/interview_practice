@@ -64,7 +64,7 @@
 #     if is_integer_numbers == False or type(k)!= int:
 #         raise TypeError('no integer')
     
-#     if len(numbers) >= 2 and k>=2:
+#     if len(numbers) >= 2 and k>=1:
 #         numbers_dict = {}
 #         for i in range(len(numbers)):
 #             if numbers[i] not in numbers_dict:
