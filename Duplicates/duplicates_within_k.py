@@ -58,32 +58,51 @@
 
 # To make our hash table, we'll only have to look at each element in the list once, so this 
 # approach should be more efficient than our original solution!
-def duplicates_within_k(numbers, k):
-    is_integer_numbers= all(isinstance(x, int) for x in numbers)
+# def duplicates_within_k(numbers, k):
+#     is_integer_numbers= all(isinstance(x, int) for x in numbers)
     
-    if is_integer_numbers == False or type(k)!= int:
-        raise TypeError('no integer')
+#     if is_integer_numbers == False or type(k)!= int:
+#         raise TypeError('no integer')
     
-    if len(numbers) >= 2 and k>=2:
-        numbers_dict = {}
-        for i in range(len(numbers)):
-            if numbers[i] not in numbers_dict:
-                numbers_dict[numbers[i]] =[i]
-            else:
-                numbers_dict[numbers[i]].append(i)
+#     if len(numbers) >= 2 and k>=2:
+#         numbers_dict = {}
+#         for i in range(len(numbers)):
+#             if numbers[i] not in numbers_dict:
+#                 numbers_dict[numbers[i]] =[i]
+#             else:
+#                 numbers_dict[numbers[i]].append(i)
         
-        for occur in numbers_dict.values():
-            if len(occur) >= 2:
-                for i in range(len(occur)):
-                    j = i + 1
-                    sutract = occur[j] - occur[i]
-                    if sutract>=1 and sutract < k:
-                        return True
+#         for occur in numbers_dict.values():
+#             if len(occur) >= 2:
+#                 for i in range(len(occur)):
+#                     j = i + 1
+#                     sutract = occur[j] - occur[i]
+#                     if sutract>=1 and sutract < k:
+#                         return True
+        
+#     return False
+#the code above has a O(N^2) TIME COMPLEXITY because of the loops utilized
+
+#make the code be O(N) TIME COMPLEXITY
+
+def duplicates_within_k(numbers, k):
+    is_integer_numbers = all(isinstance(x,int)for x in numbers)
+    
+    if not is_integer_numbers or not isinstance(k, int):
+        raise TypeError("invalid input types")
+    
+    if len(numbers) < 2 and k < 1:
+        return False
+    
+    last_index = {}
+    
+    for i, elem in enumerate(numbers):
+        if elem in last_index and i - last_index[elem] <= k:
+            return True
+        last_index[elem] = i
         
     return False
-        
-    
-# print(duplicates_within_k([1, 0, 2, 1, 3, 4], 5))
-print(duplicates_within_k([1, 0, 2, 1, 3, 4], 1))
+print(duplicates_within_k([1, 0, 2, 1, 3, 4], 5))
+# print(duplicates_within_k([1, 0, 2, 1, 3, 4], 1))
 # print(duplicates_within_k([1,2], 1))
 
