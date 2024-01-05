@@ -70,4 +70,4 @@ def twoSum(nums, target):
 print(twoSum([2,11,7,15], 9))
 print(twoSum([], 2))
 print(twoSum('k', 2))
-print(twoSum([2,11,7,15], '9'))
+# print(twoSum([2,11,7,15], '9'))
