@@ -21,7 +21,6 @@
 
 # Input: rec1 = [0,0,1,1], rec2 = [2,2,3,3]
 # Output: false
- 
 
 # Constraints:
 
