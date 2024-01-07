@@ -34,3 +34,9 @@
 #2. Should I assume that all numbers in the rectangle lists are integers?
 #3. Does the program need to check that the rectangle lists represent a valid rectangle with a
 # non-zero area?
+
+#Steps
+#1. Check the rectangle lists have a length of 4.
+#2. check all elements in the rectangle lists are integers and the sum of every element is 
+#greater than zero.
+#3. compare x2,y2 from the first rectangle against x1,y1 from the second one
