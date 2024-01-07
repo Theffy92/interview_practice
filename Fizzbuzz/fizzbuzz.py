@@ -27,3 +27,14 @@
 #Clarifying questions
 #1. Should I assume that the users is always input an integer?
 #2. does the n value has a constaint?
+
+#Steps
+#1. Check if n is actually an integer greater than 0
+#2. Create an empty list
+#3. loop n times and in this iteration check if the current n[i] number we're in is divisible by 3 and 5
+#add FizzBuzz to the list
+#3.1 if not check if it is divisible by 3 add Fizz to the list
+#3.2 if not check if it is divisible by 5 add Buzz to the list
+#else add the current number as a string in the list
+
+
