@@ -37,4 +37,22 @@
 #3.2 if not check if it is divisible by 5 add Buzz to the list
 #else add the current number as a string in the list
 
+def fizzbuzz(n):
+    if type(n) != int:
+        raise TypeError('Invalid input. Must be an integer')
+    
+    string_list = []
 
+    for i in range(1, n + 1):
+        if i % 3 == 0 and i % 5 == 0:
+            string_list.append('FizzBuzz')
+        elif i % 3 == 0:
+            string_list.append('Fizz')
+        elif i % 5 == 0: 
+            string_list.append('Buzz')
+        else:
+            string_list.append(str(i))
+            
+    return string_list
+
+print(fizzbuzz(10))
