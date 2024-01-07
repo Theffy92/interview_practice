@@ -28,3 +28,9 @@
 # rec2.length == 4
 # -109 <= rec1[i], rec2[i] <= 109
 # rec1 and rec2 represent a valid rectangle with a non-zero area.
+
+#Clarifying questions
+#1. Do the rectangle lists have to have an specific length of 4 in this case?
+#2. Should I assume that all numbers in the rectangle lists are integers?
+#3. Does the program need to check that the rectangle lists represent a valid rectangle with a
+# non-zero area?
