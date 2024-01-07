@@ -40,3 +40,37 @@
 #2. check all elements in the rectangle lists are integers and the sum of every element is 
 #greater than zero.
 #3. compare x2,y2 from the first rectangle against x1,y1 from the second one
+
+
+def rectangle_overlap(rec1, rec2):
+    if len(rec1) < 4 or len(rec2) < 4:
+        return "all rectangles need 2 coordinates"
+    
+    is_rec1_integer = all(isinstance(x, int) for x in rec1)
+    is_rec2_integer = all(isinstance(x, int) for x in rec2)
+
+    if not is_rec1_integer or not is_rec2_integer:
+        raise TypeError('invalid input types')
+    
+    sum_rec1 = sum(rec1)
+    sum_rec2 = sum(rec2)
+
+    if sum_rec1 == 0 or sum_rec2 == 0:
+        return ('only non-zero area rectangles allowed')
+    
+    x2= rec1[2]
+    y2 = rec1[3]
+    x1= rec2[0]
+    y1 = rec2[1]
+
+    if x2 - x1 > 0 and y2 - y1 > 0:
+        return True 
+    return False
+
+# rec1= [0,0,2,2]
+# rec2= [1,1,3,3]
+# rec1 = [0,0,1,1]
+# rec2 = [1,0,2,1]
+rec1 = [0,0,1,1]
+rec2 = [2,2,3,3]
+print(rectangle_overlap(rec1, rec2))
