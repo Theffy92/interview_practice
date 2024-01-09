@@ -50,24 +50,59 @@
 #4.3 otherwise we'll add that number at the dictionary, and repeat the process in the loop
 
 #code
+# def twoSum(nums, target):
+#     is_nums_int = all(isinstance(num, int) for num in nums)
+
+#     if not is_nums_int or not isinstance(target, int):
+#         raise TypeError('Invalid input types')
+    
+#     if len(nums) <= 1:
+#         return None
+    
+#     nums_dict= {}
+
+#     for i, num in enumerate(nums):
+#         complement = target - num
+#         if complement in nums_dict:
+#             return [nums_dict[complement], i]
+#         nums_dict[num] = i
+
+
+# print(twoSum([2,11,7,15], '9'))
+
+'''
+1. check data type
+2. dictionary , numbes as keys and index as values
+3. loop through list of nums
+3.1 subtraction target - current number
+if that output exists in the dictionary, add the index of the current in the indeces value list of that number(key)
+4. return the value of that key(number)
+'''
+
 def twoSum(nums, target):
     is_nums_int = all(isinstance(num, int) for num in nums)
 
     if not is_nums_int or not isinstance(target, int):
-        raise TypeError('Invalid input types')
+        raise TypeError('invalid input type')
     
     if len(nums) <= 1:
         return None
     
-    nums_dict= {}
+    nums_ind_dict= {}
 
     for i, num in enumerate(nums):
         complement = target - num
-        if complement in nums_dict:
-            return [nums_dict[complement], i]
-        nums_dict[num] = i
+        if complement in nums_ind_dict:
+            print(nums_ind_dict[complement], i)
+            return [nums_ind_dict[complement], i]
+        nums_ind_dict[num] = i
 
-print(twoSum([2,11,7,15], 9))
-print(twoSum([], 2))
-print(twoSum('k', 2))
-# print(twoSum([2,11,7,15], '9'))
+
+num1 = [2,11,7,15]
+target1 = 9
+assert twoSum(num1, target1) == [0,2]
+num2 = []
+target2= 2
+assert twoSum(num2, target2) == None
+#print(twoSum([], 2))
+#print(twoSum('k', 2))
