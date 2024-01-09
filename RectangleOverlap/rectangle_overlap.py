@@ -69,8 +69,8 @@
 
 #second attemp after googling it
 def rectangle_overlap(rec1, rec2):
-    if len(rec1) < 4 or len(rec2) < 4:
-        return "all rectangles need 2 coordinates"
+    if len(rec1) != 4 or len(rec2) != 4:
+        return "all rectangles need 2 coordinates and only 2"
     
     is_rec1_integer = all(isinstance(x, int) for x in rec1)
     is_rec2_integer = all(isinstance(x, int) for x in rec2)
