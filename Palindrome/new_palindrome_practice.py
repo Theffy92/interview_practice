@@ -1,6 +1,6 @@
 #taking care of negative numbers too
 
-import math
+#import math
 
 def palindrome(num):
     if not isinstance(num, int):
@@ -10,7 +10,8 @@ def palindrome(num):
         return True
     
     #the length of digits in the number
-    len_num = int(math.log10(abs(num))) + 1
+    len_num = len(str(abs(num)))
+    # len_num = int(math.log10(abs(num))) + 1
     # num_rev = ' '
     num_rev = 0
     modulo = 0
