@@ -23,5 +23,8 @@ Pseudocode
 
 1. create a variable to store all the vowels
 2. get the 2 first and last letters in the string. 2 pointers
+3. loop through the string 
+4. check if the left pointer is a vowel and if the right pointer is a vowel
 '''
+
 
