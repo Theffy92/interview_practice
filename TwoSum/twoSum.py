@@ -79,24 +79,38 @@ if that output exists in the dictionary, add the index of the current in the ind
 4. return the value of that key(number)
 '''
 
+# def twoSum(nums, target):
+#     is_nums_int = all(isinstance(num, int) for num in nums)
+
+#     if not is_nums_int or not isinstance(target, int):
+#         raise TypeError('invalid input type')
+    
+#     if len(nums) <= 1:
+#         return None
+    
+#     nums_ind_dict= {}
+
+#     for i, num in enumerate(nums):
+#         complement = target - num
+#         if complement in nums_ind_dict:
+#             print(nums_ind_dict[complement], i)
+#             return [nums_ind_dict[complement], i]
+#         nums_ind_dict[num] = i
+
 def twoSum(nums, target):
-    is_nums_int = all(isinstance(num, int) for num in nums)
-
-    if not is_nums_int or not isinstance(target, int):
-        raise TypeError('invalid input type')
     
-    if len(nums) <= 1:
-        return None
+    start, end = 0, len(nums) -1
     
-    nums_ind_dict= {}
-
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in nums_ind_dict:
-            print(nums_ind_dict[complement], i)
-            return [nums_ind_dict[complement], i]
-        nums_ind_dict[num] = i
-
+    while start < end:
+        current_sum= nums[start] + nums[end]
+        if current_sum == target:
+            print([start, end])
+            return [start, end]
+        elif current_sum < target:
+            start += 1
+        else:
+            end -= 1
+    return None
 
 num1 = [2,11,7,15]
 target1 = 9
