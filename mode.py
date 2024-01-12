@@ -18,9 +18,13 @@ def find_mode(nums):
             dict_nums[num] += 1
         else:
             dict_nums[num] = 1
-        
-    mode = max(dict_nums, key=dict_nums.get)
-    
+    maxvalue= 0
+    mode = 0
+    #mode = max(dict_nums, key=dict_nums.get)
+    for num, count in dict_nums.items():
+        if count > maxvalue:
+            maxvalue = count
+            mode = num
     return mode
 
 print(find_mode([7,3,5,8,3,6,1,3,4,5]))
