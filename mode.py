@@ -25,6 +25,7 @@ def find_mode(nums):
         if count > maxvalue:
             maxvalue = count
             mode = num
+            
     return mode
 
 print(find_mode([7,3,5,8,3,6,1,3,4,5]))
