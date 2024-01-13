@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Change Example</title>
+  <style>
+    /* Style for the rectangle */
+    #myRectangle {
+      width: 200px;
+      height: 100px;
+      background-color: blue; /* Initial color */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Button to trigger color change -->
+  <button onclick="changeColor()">Change Color</button>
+
+  <!-- Rectangle to change color -->
+  <div id="myRectangle"></div>
+
+  <script>
+    // JavaScript function to change the color
+    function changeColor() {
+      // Get the rectangle element
+      var rectangle = document.getElementById("myRectangle");
+
+      // Set the changing color to fuchsia
+      var changingColor = "fuchsia";
+
+      // Get the current color of the rectangle
+      var currentColor = rectangle.style.backgroundColor;
+
+      // Set the new color to the rectangle
+      var newColor = (currentColor === "blue") ? changingColor: "blue";
+
+      rectangle.style.background = newColor;
+
+      // Log the current and new colors (optional, for demonstration)
+      console.log("Current Color: " + currentColor);
+      console.log("New Color: " + changingColor);
+    }
+  </script>
+
+</body>
+</html>
