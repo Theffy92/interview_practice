@@ -75,35 +75,55 @@
 
 #recursive
 
-def is_palindrome_recursive(word):
-    #base case: an empty string or a strign with a character is a palindrome
-    #convert to lower case
-    word_lower = word.lower()
-    if len(word_lower) <= 1:
-        return True
+# def is_palindrome_recursive(word):
+#     #base case: an empty string or a strign with a character is a palindrome
+#     #convert to lower case
+#     word_lower = word.lower()
+#     if len(word_lower) <= 1:
+#         return True
     
     
-    word_no_blanks = " "
-    for char in word_lower:
-        if char != " ":
-            word_no_blanks += char
+#     word_no_blanks = " "
+#     for char in word_lower:
+#         if char != " ":
+#             word_no_blanks += char
             
-    word_lower = "".join(word_no_blanks)
+#     word_lower = "".join(word_no_blanks)
     
-    print(word_lower)
+#     print(word_lower)
     
-    start = word_lower[1]
-    print(start)
+#     start = word_lower[1]
+#     print(start)
     
-    end = word_lower[-1]
-    print(end)
-    #compare the first and last element
-    if start == end :
-        #start recursion comparing the substring excluding the first and last character
-        return is_palindrome_recursive(word_lower[2:-1])
-    else:
-        return False
+#     end = word_lower[-1]
+#     print(end)
+#     #compare the first and last element
+#     if start == end :
+#         #start recursion comparing the substring excluding the first and last character
+#         return is_palindrome_recursive(word_lower[2:-1])
+#     else:
+#         return False
     
-print(is_palindrome_recursive("Race cAr")) #true
-print(is_palindrome_recursive("pronunciation")) #false
-print(is_palindrome_recursive("mOm")) #true
+def is_palindrome(word):
+    word_lower = word.lower()
+    word_no_blanks = []
+    
+    for char in word_lower:
+        if char != ' ':
+            word_no_blanks.append(char)
+    word = ''.join(word_no_blanks)
+    
+    start, end = 0, len(word)-1
+    
+    while start < end:
+        if word[start] == word[end]:
+            start += 1
+            end -= 1
+        else:
+            return False
+        
+    return True
+            
+print(is_palindrome("Race cAr")) #true
+print(is_palindrome("pronunciation")) #false
+print(is_palindrome("mOm")) #true
