@@ -59,3 +59,26 @@ s consists of parentheses only '()[]{}'.'''
 # print(valid_parentheses('()[]')) #True
 # print(valid_parentheses('()[')) #False
 # print(valid_parentheses(']{}[]')) #False
+
+def valid_brackets(s):
+    bracket_maps = {'{':'}', '(':')', '[':']'}
+    paren_set = set('()')
+    
+    start, end = 0 , len(s) - 1
+    
+    while start < end:
+        if s[start] in bracket_maps and bracket_maps[s[start]] == s[end]:
+            #if s[start+1] in paren_set:
+            if s[end-1] in bracket_maps and bracket_maps[s[end-1]]== s[start +1]:
+                start += 2
+                end -= 2
+            else:
+                start += 1
+                end -= 1
+        else:
+            return 0
+        
+    return 1
+
+print(valid_brackets('{[()()]}'))
+print(valid_brackets('([)()]'))
