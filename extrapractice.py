@@ -109,12 +109,15 @@ def index_match(s1,s2):
     for i in range(len(s1)):
         if s1[i] == s2[i]:
             match_s += 'G'
+        elif s2[i] in s1:
+            match_s += 'Y'
         else:
             match_s +='B'
             
     return match_s
 
 print(index_match('CRATE', 'GRATE'))
+print(index_match('CRATE', 'SOARE'))
 '''
 5.
 Given a number, N, print all combinations of A/B where A is between 0 & N and B is between 1 
