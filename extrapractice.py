@@ -104,20 +104,20 @@ letter is from the it's place in the first string.
 EX Input: "CRATE", "SOARE"
 EX Output: "BBG2G"
 '''
-def index_match(s1,s2):
-    match_s=''
-    for i in range(len(s1)):
-        if s1[i] == s2[i]:
-            match_s += 'G'
-        elif s2[i] in s1:
-            match_s += str(s1.index(s2[i])+1)
-        else:
-            match_s +='B'
+# def index_match(s1,s2):
+#     match_s=''
+#     for i in range(len(s1)):
+#         if s1[i] == s2[i]:
+#             match_s += 'G'
+#         elif s2[i] in s1:
+#             match_s += str(s1.index(s2[i])+1)
+#         else:
+#             match_s +='B'
             
-    return match_s
+#     return match_s
 
-print(index_match('CRATE', 'GRATE'))
-print(index_match('CRATE', 'SOARE'))
+# print(index_match('CRATE', 'GRATE'))
+# print(index_match('CRATE', 'SOARE'))
 '''
 5.
 Given a number, N, print all combinations of A/B where A is between 0 & N and B is between 1 
@@ -134,3 +134,28 @@ For example:
 N = 3, output: {0/1, 1/1, 1/2, 1/3, 2/3} because 2/2 simplifies to 1/1 and 3/3 also 
 simplifies to 1/1.
 '''
+# def combinations(N):
+#     # comb_set = set()
+#     # for i in range(N):
+#     #     comb_set.add(f"{i}/{i+1}")
+#     comb_res = []
+#     for i in range(N+1):
+#         for j in range(1, N+1):
+#             if i <= j:
+#                 comb_res.append(f'{i}/{j}')                
+
+#     return "{" + ", ".join(comb_res) + "}"
+
+def combinations(N):
+    result = []
+    for A in range(N + 1):
+        for B in range(1, N + 1):
+            if (A > 0 or B == 1) and A <= B:
+                if all(A % i != 0 or B % i != 0 for i in range(2, min(A, B) + 1)):
+                    result.append(f"{A}/{B}")
+
+    return "{" + ", ".join(result) + "}"
+    
+print(combinations(1))
+print(combinations(2))
+print(combinations(3))
