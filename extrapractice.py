@@ -69,22 +69,23 @@ to make the input sorted.'''
 #Output: 2
 # [2, 11].
 '''
-def remove_duplicates(l):
-    # l = set(l)
-    # for i in range(len(l)):
-    #     if l[i] == l[i+1]:
-    #         l.pop(i+1)
-    i = 0
-    while i < len(l) - 1:
-        if l[i] == l[i+1]:
-            l.pop(i)
-        else:
-            i +=1 
+# def remove_duplicates(l):
+#     # l = set(l)
+#     # for i in range(len(l)):
+#     #     if l[i] == l[i+1]:
+#     #         l.pop(i+1)
+#     i = 0
+#     while i < len(l) - 1:
+#         if l[i] == l[i+1]:
+#             l.pop(i)
+#         else:
+#             i +=1 
             
-    return len(l)
+#     return len(l)
 
-print(remove_duplicates([2,3,3,6,9,9]))
-print(remove_duplicates([2,2,2,11]))
+# print(remove_duplicates([2,3,3,6,9,9]))
+# print(remove_duplicates([2,2,2,11]))
+
 '''
 4.
 Given two strings, return "G" if the values at the same index match, or "B" if they don't. 
@@ -93,7 +94,8 @@ EX Output: "BGGGG"
 EX Input: "CRATE", "SOARE"
 EX Output: "BBGBG"
 
-After solving this, was asked to return "Y" if the value was in the other word, but just not at the same index
+After solving this, was asked to return "Y" if the value was in the other word,
+but just not at the same index
 EX Input: "CRATE", "SOARE"
 EX Output: "BBGYG"
 
@@ -102,6 +104,17 @@ letter is from the it's place in the first string.
 EX Input: "CRATE", "SOARE"
 EX Output: "BBG2G"
 '''
+def index_match(s1,s2):
+    match_s=''
+    for i in range(len(s1)):
+        if s1[i] == s2[i]:
+            match_s += 'G'
+        else:
+            match_s +='B'
+            
+    return match_s
+
+print(index_match('CRATE', 'GRATE'))
 '''
 5.
 Given a number, N, print all combinations of A/B where A is between 0 & N and B is between 1 
