@@ -139,7 +139,7 @@ simplifies to 1/1.
 #     # for i in range(N):
 #     #     comb_set.add(f"{i}/{i+1}")
 #     comb_res = []
-#     for i in range(N+1):
+#     for i in range(N+1):																																	
 #         for j in range(1, N+1):
 #             if i <= j:
 #                 comb_res.append(f'{i}/{j}')                
