@@ -42,22 +42,24 @@ working), condense overlapping times into a single merged range, eg.
 Started as non-sorted but then interviewer offered to just start with sort(input) 
 to make the input sorted.'''
 
-def time_intervals(timelist):
-    timelist.sort()
-    merged_range =[]
+# def time_intervals(timelist):
+#     timelist.sort()
+#     merged_range =[]
     
-    for i in range(0,len(timelist), 2):
-        for j in range(len(timelist[i])):
-            if timelist[i][j] < timelist[i+1][0] < timelist[i][j+1]:
-                merged_range.append((timelist[i][j], timelist[i+1][1]))
+#     for i in range(0,len(timelist), 2):
+#         for j in range(len(timelist[i])):
+#             if timelist[i][j] < timelist[i+1][0] < timelist[i][j+1]:
+#                 merged_range.append((timelist[i][j], timelist[i+1][1]))
             
-    return merged_range
+#     return merged_range
 
-print(time_intervals([[5,7],[1,3],[6,8],[2,4]]))
+# print(time_intervals([[5,7],[1,3],[6,8],[2,4]]))
 
 '''
 3.
-# !!! In place. Given an array of numbers of sorted numbers, remove all duplicates from it. You should not use any extra space; after removing the duplicates in-place return the new length of the array.
+# !!! In place. Given an array of numbers of sorted numbers, remove all duplicates from it.
+# You should not use any extra space; after removing the duplicates in-place return the new 
+# length of the array.
 
 # Input: [2, 3, 3, 6, 9, 9]
 # Output: 4
@@ -67,7 +69,22 @@ print(time_intervals([[5,7],[1,3],[6,8],[2,4]]))
 #Output: 2
 # [2, 11].
 '''
+def remove_duplicates(l):
+    # l = set(l)
+    # for i in range(len(l)):
+    #     if l[i] == l[i+1]:
+    #         l.pop(i+1)
+    i = 0
+    while i < len(l) - 1:
+        if l[i] == l[i+1]:
+            l.pop(i)
+        else:
+            i +=1 
+            
+    return len(l)
 
+print(remove_duplicates([2,3,3,6,9,9]))
+print(remove_duplicates([2,2,2,11]))
 '''
 4.
 Given two strings, return "G" if the values at the same index match, or "B" if they don't. 
