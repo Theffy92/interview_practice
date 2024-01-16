@@ -110,7 +110,7 @@ def index_match(s1,s2):
         if s1[i] == s2[i]:
             match_s += 'G'
         elif s2[i] in s1:
-            match_s += 'Y'
+            match_s += str(s1.index(s2[i])+1)
         else:
             match_s +='B'
             
