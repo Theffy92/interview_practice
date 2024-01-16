@@ -42,6 +42,19 @@ working), condense overlapping times into a single merged range, eg.
 Started as non-sorted but then interviewer offered to just start with sort(input) 
 to make the input sorted.'''
 
+def time_intervals(timelist):
+    timelist.sort()
+    merged_range =[]
+    
+    for i in range(0,len(timelist), 2):
+        for j in range(len(timelist[i])):
+            if timelist[i][j] < timelist[i+1][0] < timelist[i][j+1]:
+                merged_range.append((timelist[i][j], timelist[i+1][1]))
+            
+    return merged_range
+
+print(time_intervals([[5,7],[1,3],[6,8],[2,4]]))
+
 '''
 3.
 # !!! In place. Given an array of numbers of sorted numbers, remove all duplicates from it. You should not use any extra space; after removing the duplicates in-place return the new length of the array.
