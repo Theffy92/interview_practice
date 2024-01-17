@@ -157,5 +157,8 @@ def combinations(N):
     return "{" + ", ".join(result) + "}"
     
 print(combinations(1))
-print(combinations(2))
+assert combinations(1) == "{0/1, 1/1}"
+print('test passed')
+print(combinations(0))
+assert combinations(0) == "{}"
 print(combinations(3))
