@@ -46,10 +46,45 @@ It is guaranteed that s is a valid roman numeral in the range [1, 3999].'''
 
 def roman_to_integer(s):
     roman_int_map = {'I':1, 'V':5, 'X':10, 'L':50, 'C': 100, 'D':500, 'M': 1000}
+    sum_int = 0
+    i = 0
     
-    for ele in s:
-        print(roman_int_map[ele])
-        
-    return None
+    while i < len(s):
+        if s[i] == "I":
+            if i+1 < len(s) and s[i+1] == "V":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            elif i+1 < len(s) and s[i+1] == "X":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            else:
+                sum_int += roman_int_map[s[i]]
+                i+=1
+        elif s[i] == "X":
+            if i+1 < len(s) and s[i+1] == "L":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            elif i+1 < len(s) and s[i+1] == "C":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            else:
+                sum_int += roman_int_map[s[i]]
+                i+=1
+        elif s[i] == "C":
+            if i+1 < len(s) and s[i+1] == "D":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            elif i+1 < len(s) and s[i+1] == "M":
+                sum_int += roman_int_map[s[i+1]] - roman_int_map[s[i]]
+                i+=2
+            else:
+                sum_int += roman_int_map[s[i]]
+                i+=1
+        else:
+            sum_int += roman_int_map[s[i]]
+            i+=1
+                
+    return sum_int
 
-print(roman_to_integer('MCMXCIV'))
+print(roman_to_integer('CXXXV')) #135
+print(roman_to_integer('MCMXCIV')) #1994
