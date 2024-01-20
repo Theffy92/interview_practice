@@ -48,11 +48,18 @@ nums is sorted in non-decreasing order.'''
 
 def removeduplicate(nums):
     expected_nums=[]
+    i = 0
     
-    for num in nums:
-        if num not in expected_nums:
-            expected_nums.append(num)
-        
-    return expected_nums
+    while i < len(nums):
+        if nums[i] not in expected_nums:
+            expected_nums.append(nums[i])
+            i+=1
+        else:
+            nums.pop(i)
+    
+    print(nums)
+    k = len(nums)
+    return k
+
 
 print(removeduplicate([0,0,1,1,1,2,2,3,3,4]))
