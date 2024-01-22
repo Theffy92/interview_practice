@@ -1,13 +1,16 @@
 const fizzBuzz= (num) => {
     const arr = []
-    
-    if(num % 3 == 0){
-        arr.push("Fizz")
-    }
-    else if(num % 5 == 0){
-        arr.push("Buzz")
-    }else if(num % 3==0 && num % 5 ==0){
-        arr.push("FizzBuzz")
+    for(let i=1; i<= num; i++){
+        if(i % 3==0 && i % 5 ==0){
+            arr.push("FizzBuzz");
+        }
+        else if(i % 5 == 0){
+            arr.push("Buzz");
+        }else if(i % 3 == 0){
+            arr.push("Fizz");
+        }else{
+            arr.push(i.toString())
+        }
     }
     return arr
 }
