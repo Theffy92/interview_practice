@@ -20,7 +20,7 @@ def find_mode(nums):
             dict_nums[num] = 1
     maxvalue= 0
     mode = 0
-    #mode = max(dict_nums, key=dict_nums.get)
+   
     for num, count in dict_nums.items():
         if count > maxvalue:
             maxvalue = count
