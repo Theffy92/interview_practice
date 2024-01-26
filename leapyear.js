@@ -14,8 +14,11 @@ const leapYears =(startYear, endYear)=>{
     
     for(let year = startYear; year <= endYear; year++){
         if((year % 4 === 0 && year % 100 != 0) || year % 4 ===0){
-            leapYears.push(year);
+            leapYearsArr.push(year);
         }
-        return leapYearsArr;
     }
+
+    return leapYearsArr;
 }
+
+console.log(leapYears(2000, 2024))
